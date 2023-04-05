@@ -1,0 +1,47 @@
+{
+  "expo": {
+    "name": "PAP-APP",
+    "slug": "PAP-APP",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/PAPAPP.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/PAPAPP.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff",
+      "plugins": [
+        [
+          "expo-image-picker",
+          {
+            "photosPermission": "The app accesses your photos to let you share your profile."
+          }
+        ]
+      ]
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#FFFFFF"
+      },
+      "package": "com.jurenroy.PAPAPP"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "f15c52f9-c5a0-4a5b-8739-d53c0318c1f7"
+      }
+    }
+  }
+}
