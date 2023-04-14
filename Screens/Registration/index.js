@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Text, View, TextInput, Pressable, Image} from 'react-native';
-
+import DropDownPicker from 'react-native-dropdown-picker';
 import { globalStyles } from '../../Components/styles';
 import { useDispatch } from 'react-redux';
 import { setFirstName, setLastName, setEmail, setPassword, setImage } from '../../Slices/Data/DataSlice';
@@ -12,19 +12,31 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { useTogglePasswordVisibility} from '../../Components/useTogglePasswordVisibility'
 import { handleRegistration } from '../../Components/handleRegistration';
 
+
+
 export default function Registration({navigation}) {
   const dispatch = useDispatch()
   const { passwordVisibility, rightIcon, handlePasswordVisibility } =
     useTogglePasswordVisibility();
-  const [data, setData] = useState({
-    firstName: '',
-    lastName: '',
-    gender: '',
-    birthday: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
-  })
+    const [data, setData] = useState({
+      firstName: '',
+      lastName: '',
+      gender: '',
+      birthday: '',
+      email: '',
+      password: '',
+      confirmPassword: '',
+    });
+  
+    const genderOptions = [
+      { label: 'Male', value: 'male' },
+      { label: 'Female', value: 'female' },
+      { label: 'Other', value: 'other' },
+    ];
+  
+    const handleGenderSelect = (value) => {
+      setData({ ...data, gender: value });
+    }; 
 
   return (
     <View style={globalStyles.container}>
@@ -43,6 +55,19 @@ export default function Registration({navigation}) {
       value={data.lastName}
       onChangeText={text => {setData({...data,lastName: text})}}/>
       
+      <DropDownPicker
+        open={true}
+        items={genderOptions}
+        defaultValue={data.gender}
+        placeholder="Select Gender"
+        style={{ backgroundColor: '#fafafa' }}
+        itemStyle={{
+          justifyContent: 'flex-start',
+        }}
+        dropDownStyle={{ backgroundColor: '#fafafa' }}
+        onChangeItem={(item) => handleGenderSelect(item.value)}
+      />
+
       <TextInput
       style={globalStyles.input} 
       placeholder='Gender' 
