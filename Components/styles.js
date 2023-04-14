@@ -9,22 +9,19 @@ export const globalStyles = StyleSheet.create({
       justifyContent: 'center',
     },
     container2: {
-        flex: 1,
-        background: 'linear-gradient(#9026C8, #610094, #3F0071, #150050, #000000)',
+        flex: 1,        
         flexDirection: 'column',
         alignItems: 'flex-start',
         justifyContent: 'center',
     },container3: {
       flex: 1,
-      background: 'linear-gradient(#9026C8, #610094, #3F0071, #150050, #000000)',
+      
       alignItems: 'center',
     },container4: {
       flex: 1,
-      background: 'linear-gradient(#9026C8, #610094, #3F0071, #150050, #000000)',
       alignItems: 'center',
     },container5: {
       flex: 1,
-      background: 'linear-gradient(#9026C8, #610094, #3F0071, #150050, #000000)',
       flexDirection: 'column',
   },
     input: {
@@ -39,25 +36,28 @@ export const globalStyles = StyleSheet.create({
       justifyContent: 'center'
     },
     title: {
-      fontWeight: 'bold', fontSize: 50, paddingBottom: 20
+      fontWeight: 'bold', fontSize: 50, paddingBottom: 20, color: 'white'
     },title2: {
-        fontWeight: 'bold', fontSize: 40, paddingBottom: 40
+        fontWeight: 'bold', fontSize: 40, paddingBottom: 40, color: 'white'
     },labels: {
-      fontSize: 20
+      fontSize: 20, color: 'white'
     },labelss: {
-      fontSize: 25
+      fontSize: 25, color: 'white'
     },labelsss: {
-      fontSize: 25
+      fontSize: 25, color: 'white'
     },chatLabel: {
       fontSize: 25,
       marginTop: 20,
+      color: 'white'
     },chatLabel2: {
       fontSize: 25,
-      marginTop: 20,
+      marginTop: 20, 
+      color: 'white'
     },chatLabel3: {
-      fontSize: 25,
+      fontSize: 25, 
+      color: 'white'
     },hyper: {
-      fontSize: 20, textDecorationLine: 'underline', marginTop: 15
+      fontSize: 20, textDecorationLine: 'underline', marginTop: 15, color: 'white'
     },
     Started: {
         width: 250, height: 250,
