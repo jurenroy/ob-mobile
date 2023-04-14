@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Text, View, TextInput, Pressable, Image} from 'react-native';
+import { Text, View, TextInput, Pressable, Image, TouchableOpacity,StyleSheet} from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
 import { globalStyles } from '../../Components/styles';
 import { useDispatch } from 'react-redux';
@@ -11,6 +11,7 @@ import { Conv } from '../../Components/Conv';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { useTogglePasswordVisibility} from '../../Components/useTogglePasswordVisibility'
 import { handleRegistration } from '../../Components/handleRegistration';
+import { Dropdown } from 'react-native-element-dropdown';
 
 
 
@@ -27,6 +28,8 @@ export default function Registration({navigation}) {
       password: '',
       confirmPassword: '',
     });
+
+
   
     const genderOptions = [
       { label: 'Male', value: 'male' },
@@ -38,6 +41,22 @@ export default function Registration({navigation}) {
       setData({ ...data, gender: value });
     }; 
 
+    const gender = [
+      { label: 'Male', value: 'Male' },
+      { label: 'Female', value: 'Female' },
+      
+    ];
+
+   
+      const [value, setValue] = useState(null);
+      const [isFocus, setIsFocus] = useState(false);
+    
+
+      const handleSelect = (item) => {
+        setValue(item.value);
+        setIsFocus(false);
+      };
+ 
   return (
     <View style={globalStyles.container}>
       <Image source = {require('../../assets/PAPAPP.png')} style = {globalStyles.logoism}/>
@@ -55,7 +74,7 @@ export default function Registration({navigation}) {
       value={data.lastName}
       onChangeText={text => {setData({...data,lastName: text})}}/>
       
-      <DropDownPicker
+      {/* <DropDownPicker
         open={true}
         items={genderOptions}
         defaultValue={data.gender}
@@ -66,13 +85,35 @@ export default function Registration({navigation}) {
         }}
         dropDownStyle={{ backgroundColor: '#fafafa' }}
         onChangeItem={(item) => handleGenderSelect(item.value)}
-      />
+      /> */}
 
-      <TextInput
-      style={globalStyles.input} 
-      placeholder='Gender' 
-      value={data.gender}
-      onChangeText={text => {setData({...data,gender: text})}}/>
+      <Dropdown
+          style={[styles.dropdown, isFocus && { borderColor: 'blue' }]}
+          data={gender}
+          maxHeight={300}
+          labelField="label"
+          valueField="value"
+          placeholder={!isFocus ? 'Select Gender' : '...'}
+          placeholderStyle={{ textAlign: "center" }}
+          value={value}
+          itemTextStyle={{textAlign: 'center', marginTop:-15,marginBottom:-15}} 
+          selectedTextStyle={{textAlign: 'center', alignItems: 'center', justifyContent: 'center' }} 
+          onChange={handleSelect}
+          onFocus={() => setIsFocus(true)}
+          onBlur={() => setIsFocus(false)}
+          textStyle={{textAlign: 'center', alignItems: 'center', justifyContent: 'center' }} 
+          valueTextStyle={{ textAlign: 'center', alignItems: 'center', justifyContent: 'center' }}
+          renderValue={() => {
+            if (value) {
+              return (
+                <Text style={styles.value}>
+                  {value}
+                </Text>
+              );
+            }
+            return null;
+          }}
+        />
 
       <TextInput
       style={globalStyles.input} 
@@ -203,3 +244,30 @@ export default function Registration({navigation}) {
   );
 }
 
+
+
+const styles = StyleSheet.create({
+  dropdown: {
+    height: '6%',
+    width: '75%',
+    borderColor: 'gray',
+    borderWidth: 0.5,
+    borderRadius: 20,
+    paddingHorizontal: 2,
+    marginBottom: 15,
+    borderColor: 'black',
+    alignItems: 'center',
+    justifyContent: 'center',
+    textAlign:'center',
+    },
+  value: {
+    position: 'absolute',
+    left: 5,
+    right: 5,
+    textAlign: 'center',
+    alignItems:'center',
+    opacity: 0,
+  },
+ 
+
+});
