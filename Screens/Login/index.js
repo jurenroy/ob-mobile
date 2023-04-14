@@ -6,6 +6,7 @@ import { setLoginStatus} from '../../Slices/Data/DataSlice';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { useTogglePasswordVisibility} from '../../Components/useTogglePasswordVisibility'
 import bg from '../../assets/bg.png'
+import cont from '../../assets/cont.png'
 
 export default function Login({navigation}) {
   const [data, setData] = useState({
@@ -21,26 +22,34 @@ export default function Login({navigation}) {
 
   return (
     <ImageBackground source={bg} style={globalStyles.background}>
+    <View style={globalStyles.cont}>
+    <ImageBackground source={cont} style={globalStyles.background}>
+      
     <View style={globalStyles.container}>
-      <Image source = {require('../../assets/PAPAPP.png')} style = {globalStyles.logoism}/>
+      
+      <Image source = {require('../../assets/ob.png')} style = {globalStyles.logoism}/>
       <Text style={globalStyles.title}>Login</Text>
       <TextInput
       style={globalStyles.input} 
       placeholder='Email Address' 
+      placeholderTextColor={'white'}
       value={data.email}
       onChangeText={text => {setData({...data,email: text})}}
       />      
       
-      <TextInput 
-      secureTextEntry={passwordVisibility}
-      style={globalStyles.input} 
-      placeholder='Password' 
-      value={data.password}      
-      onChangeText={text => {setData({...data,password: text})}}
-      />
-      <Pressable onPress={handlePasswordVisibility}>
-        <MaterialCommunityIcons name={rightIcon} size={22} color="#232323" />
-      </Pressable>
+      <View style={globalStyles.inputContainer}>
+        <TextInput 
+          secureTextEntry={passwordVisibility}
+          style={globalStyles.inputpass} 
+          placeholder='Password' 
+          placeholderTextColor={'white'}
+          value={data.password}      
+          onChangeText={text => {setData({...data,password: text})}}
+        />
+        <Pressable onPress={handlePasswordVisibility} style={globalStyles.eyeIcon}>
+          <MaterialCommunityIcons name={rightIcon} size={22} color="white" />
+        </Pressable>
+      </View>
 
       <Pressable style={globalStyles.buttons} onPress={() => {
         if (data.email!=''&&data.password!=''){
@@ -83,6 +92,9 @@ export default function Login({navigation}) {
           })
          navigation.replace('Registration'); }}>Don't have an account? Register</Text>
       
+    
+    </View>
+    </ImageBackground>
     </View>
     </ImageBackground>
   );

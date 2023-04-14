@@ -35,7 +35,7 @@ export default function Chats({navigation}) {
               global.chat=Index
             } }> 
             <View style={globalStyles.chatView}>                
-                {Petss.uri && <Image source={{ uri: Petss.uri }} style={{ width: 70, height: 70, justifyContent: 'center', borderRadius: 100, marginBottom: 12}} />}
+                {Petss.uri && <Image source={{ uri: Petss.uri }} style={{ width: 70, height: 70, justifyContent: 'center', borderRadius: 100, marginBottom: 12,}} />}
                 <View  style={globalStyles.chatsd}>
                 <Text key = {Index} style={globalStyles.labelsss}>{Petss.type}</Text>
                 <Text style={globalStyles.labelsss}>{Conv[Index][Conv[Index].length-1]}</Text>

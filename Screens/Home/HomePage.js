@@ -219,7 +219,7 @@ export default class HomePage extends React.Component {
           </View>
         <View style={{ height: 0 }}>
           </View>
-          <View style={globalStyles.heartView}>
+          <View style={globalStyles.heartViewew}>
           {this.renderNames()}
           </View>   
         <View style={globalStyles.heartView}> 

@@ -5,13 +5,13 @@ import bg from '../../assets/bg.png'
 
 
 export default function Dashboard({navigation}) {
-  const isLoggedIn = useSelector((state) => state.data.loginStatus === 'Logged');  
+  const isLoggedIn = useSelector((state) => state.data.loginStatus === '');  
 
   return (    
     <ImageBackground source={bg} style={globalStyles.background}>
       <View style={globalStyles.container}>       
       
-        <Image source = {require('../../assets/PAPAPP.png')} style = {globalStyles.Started}/>
+        <Image source = {require('../../assets/ob.png')} style = {globalStyles.Started}/>
         <Text style={globalStyles.title} onPress={() => {
             if (isLoggedIn){
               navigation.replace('Home')
@@ -19,7 +19,7 @@ export default function Dashboard({navigation}) {
               navigation.replace('Get Started')
             }
           }}>
-          ADOPT PETS
+          ONLINE BUGAW
         </Text> 
       </View>     
     </ImageBackground>               

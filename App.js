@@ -16,24 +16,32 @@ import Conversation from "./Screens/Conversation";
 
 const Stack = createNativeStackNavigator()
 
+const headerOptions = {
+  headerStyle: {
+    backgroundColor: '#33083a',
+  },
+  headerTintColor: '#fff',
+  headerTitleStyle: {
+    fontWeight: 'bold',
+  },
+};
+
 export default function App() {
-  
   return (
     <Provider store={store}>
       <NavigationContainer>
         <Stack.Navigator >
-          <Stack.Screen name="Dashboard" component={Dashboard} />
-          <Stack.Screen name="Get Started" component={GetStarted}/>
-          <Stack.Screen name="Login" component={Login}/>
-          <Stack.Screen name="Registration" component={Registration}/>        
-          <Stack.Screen name="Forgot Password" component={ForgotPassword}/>
-          <Stack.Screen name="Home" component={Home}/>
-          <Stack.Screen name="Home(Dogs)" component={Dogs}/>
-          <Stack.Screen name="Home(Cats)" component={Cats}/>
-          <Stack.Screen name="Chats" component={Chats}/>
-          <Stack.Screen name="Conversation" component={Conversation}/>
-          <Stack.Screen name="Profile" component={Profile}/>
-
+        <Stack.Screen name="Dashboard" component={Dashboard} options={headerOptions} />
+          <Stack.Screen name="Get Started" component={GetStarted} options={headerOptions} />
+          <Stack.Screen name="Login" component={Login} options={headerOptions} />
+          <Stack.Screen name="Registration" component={Registration} options={headerOptions} />        
+          <Stack.Screen name="Forgot Password" component={ForgotPassword} options={headerOptions} />
+          <Stack.Screen name="Home" component={Home} options={headerOptions} />
+          <Stack.Screen name="Home(Dogs)" component={Dogs} options={headerOptions} />
+          <Stack.Screen name="Home(Cats)" component={Cats} options={headerOptions} />
+          <Stack.Screen name="Chats" component={Chats} options={headerOptions} />
+          <Stack.Screen name="Conversation" component={Conversation} options={headerOptions} />
+          <Stack.Screen name="Profile" component={Profile} options={headerOptions} />
           </Stack.Navigator>      
       </NavigationContainer>
     </Provider>

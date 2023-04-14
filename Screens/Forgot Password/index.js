@@ -17,7 +17,7 @@ export default function ForgotPassword({navigation}) {
   return (
     <ImageBackground source={bg} style={globalStyles.background}>
     <View style={globalStyles.container}>
-      <Image source = {require('../../assets/PAPAPP.png')} style = {globalStyles.logoism}/>
+      <Image source = {require('../../assets/ob.png')} style = {globalStyles.logoism}/>
       <Text style={globalStyles.title2}>Forgot Password</Text>
       <TextInput
       style={globalStyles.input} 

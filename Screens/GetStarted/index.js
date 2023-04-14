@@ -7,9 +7,9 @@ export default function GetStarted({navigation}) {
   return (
     <ImageBackground source={bg} style={globalStyles.background}>
     <View style={globalStyles.container}>
-        <Text style={globalStyles.title}>PAP APP</Text>
+        <Text style={globalStyles.title}>ONLINE BUGAW</Text>
       
-        <Image source = {require('../../assets/PAPAPP.png')} style = {globalStyles.Started}/>
+        <Image source = {require('../../assets/ob.png')} style = {globalStyles.Started}/>
 
         <Pressable style={globalStyles.buttons} onPress={() => {
           
@@ -18,7 +18,7 @@ export default function GetStarted({navigation}) {
           <Text style={globalStyles.buttonsLabels}>Get Started</Text>
           </Pressable>      
             
-          <Text style={globalStyles.labelss}>By Tapping "Get Started" you agreed to our</Text>
+          <Text style={globalStyles.label}>By Tapping "Get Started" you agreed to our</Text>
           <Text style={globalStyles.hyper}>Terms and Policies</Text>
 
       </View>

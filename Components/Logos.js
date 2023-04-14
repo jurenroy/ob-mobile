@@ -12,15 +12,15 @@ export default function Logos(props) {
   return(
       <View style={globalStyles.logoView}> 
       <Pressable onPress={() => {props.navigation.replace('Home') } }>
-        <Image source = {require('../assets/PAPAPP.png')} style = {globalStyles.logoism2}/>
+        <Image source = {require('../assets/ob.png')} style = {globalStyles.logoism2}/>
       </Pressable>
 
       <Pressable onPress={() => {props.navigation.replace('Home(Dogs)')} }>
-        <Image source = {require('../assets/doglogo.png')} style = {globalStyles.logoism2}/>
+        <Image source = {require('../assets/loveus.png')} style = {globalStyles.logoism2}/>
       </Pressable>
 
       <Pressable onPress={() => {props.navigation.replace('Home(Cats)')} }>
-        <Image source = {require('../assets/catlogo.png')} style = {globalStyles.logoism2}/>
+        <Image source = {require('../assets/dobook.png')} style = {[globalStyles.logoism2,{height:80,marginTop:-5}]}/>
       </Pressable>
 
       <Pressable onPress={() => {props.navigation.replace('Chats')}}>
