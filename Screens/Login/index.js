@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { setLoginStatus} from '../../Slices/Data/DataSlice';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { useTogglePasswordVisibility} from '../../Components/useTogglePasswordVisibility'
+import bg from '../../assets/bg.png'
 
 export default function Login({navigation}) {
   const [data, setData] = useState({
@@ -19,6 +20,7 @@ export default function Login({navigation}) {
   const storedPassword = useSelector((state) => state.data.password)
 
   return (
+    <ImageBackground source={bg} style={globalStyles.background}>
     <View style={globalStyles.container}>
       <Image source = {require('../../assets/PAPAPP.png')} style = {globalStyles.logoism}/>
       <Text style={globalStyles.title}>Login</Text>
@@ -82,6 +84,7 @@ export default function Login({navigation}) {
          navigation.replace('Registration'); }}>Don't have an account? Register</Text>
       
     </View>
+    </ImageBackground>
   );
 }
 

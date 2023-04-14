@@ -7,6 +7,7 @@ import one from '../../assets/1.jpg'
 import { Pets } from '../../Components/Pets';
 import { Petss } from '../../Components/Petss';
 import { Conv } from '../../Components/Conv';
+import bg from '../../assets/bg.png'
 
 
 export default function Chats({navigation}) {
@@ -18,6 +19,8 @@ export default function Chats({navigation}) {
 
 
    return (
+
+    <ImageBackground source={bg} style={globalStyles.background}>
       
     <View style={globalStyles.container4}> 
       <View style={globalStyles.logoView}>
@@ -43,4 +46,5 @@ export default function Chats({navigation}) {
       })}
       </ScrollView>
     </View>
+    </ImageBackground>
   )}

@@ -4,6 +4,7 @@ import { setLoginStatus, setImage} from '../../Slices/Data/DataSlice';
 import Logos from '../../Components/Logos';
 import { globalStyles } from '../../Components/styles';
 import * as ImagePicker from 'expo-image-picker';
+import bg from '../../assets/bg.png'
 
 
 export default function Profile({navigation}) {
@@ -27,7 +28,7 @@ export default function Profile({navigation}) {
   };
 
   return (
-      
+    <ImageBackground source={bg} style={globalStyles.background}>
     <View style={globalStyles.container3}> 
       <View style={globalStyles.logoView}>
         <Logos navigation={navigation} />
@@ -45,4 +46,5 @@ export default function Profile({navigation}) {
         navigation.replace('Dashboard')
       } }><Text style={globalStyles.buttonsLabels}>Logout</Text></Pressable>
     </View>
+    </ImageBackground>
   )}

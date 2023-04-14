@@ -11,6 +11,7 @@ import { Conv } from '../../Components/Conv';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { useTogglePasswordVisibility} from '../../Components/useTogglePasswordVisibility'
 import { handleRegistration } from '../../Components/handleRegistration';
+import bg from '../../assets/bg.png'
 
 
 
@@ -39,6 +40,7 @@ export default function Registration({navigation}) {
     }; 
 
   return (
+    <ImageBackground source={bg} style={globalStyles.background}>
     <View style={globalStyles.container}>
       <Image source = {require('../../assets/PAPAPP.png')} style = {globalStyles.logoism}/>
       <Text style={globalStyles.lable}></Text>
@@ -200,6 +202,7 @@ export default function Registration({navigation}) {
           })
          navigation.replace('Login'); }}>Already have an account? Login</Text>
     </View>
+    </ImageBackground>
   );
 }
 

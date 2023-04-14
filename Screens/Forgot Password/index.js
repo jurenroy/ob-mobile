@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, Pressable, Image } from 'react-native';
 import { globalStyles } from '../../Components/styles';
 import { useSelector } from "react-redux";
+import bg from '../../assets/bg.png'
 
 export default function ForgotPassword({navigation}) {
   const storedfirstName = useSelector((state) => state.data.firstName)
@@ -14,6 +15,7 @@ export default function ForgotPassword({navigation}) {
   })
 
   return (
+    <ImageBackground source={bg} style={globalStyles.background}>
     <View style={globalStyles.container}>
       <Image source = {require('../../assets/PAPAPP.png')} style = {globalStyles.logoism}/>
       <Text style={globalStyles.title2}>Forgot Password</Text>
@@ -47,6 +49,7 @@ export default function ForgotPassword({navigation}) {
         <Text style={globalStyles.buttonsLabels2}>SEND TO EMAIL ADDRESS</Text>
       </Pressable>
     </View>
+    </ImageBackground>
   );
 }
 

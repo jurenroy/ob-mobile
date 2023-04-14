@@ -8,6 +8,7 @@ import { Pets } from '../../Components/Pets';
 import { Petss } from '../../Components/Petss';
 import { Conv } from '../../Components/Conv';
 import { Statetus } from '../../Components/Statetus';
+import bg from '../../assets/bg.png'
 
 
 export default function Conversation({navigation}) {
@@ -20,6 +21,7 @@ export default function Conversation({navigation}) {
     var ind = global.chat    
 
    return (
+    <ImageBackground source={bg} style={globalStyles.background}>
       
     <View style={globalStyles.container5}> 
       <View style={globalStyles.logoView}>
@@ -74,4 +76,5 @@ export default function Conversation({navigation}) {
       </Pressable>
         </View>
     </View>
+    </ImageBackground>
   )}

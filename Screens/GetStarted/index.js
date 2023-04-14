@@ -1,9 +1,11 @@
 import { Text, View, Pressable, Image} from 'react-native';
 import { globalStyles } from '../../Components/styles';
+import bg from '../../assets/bg.png'
 
 export default function GetStarted({navigation}) {
 
   return (
+    <ImageBackground source={bg} style={globalStyles.background}>
     <View style={globalStyles.container}>
         <Text style={globalStyles.title}>PAP APP</Text>
       
@@ -20,6 +22,7 @@ export default function GetStarted({navigation}) {
           <Text style={globalStyles.hyper}>Terms and Policies</Text>
 
     </View>
+    </ImageBackground>
   );
 }
 

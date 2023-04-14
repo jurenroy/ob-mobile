@@ -5,6 +5,8 @@ import React, { Component } from 'react';
 import { Platform, StyleSheet, View, Text, Dimensions, Animated, PanResponder,} from 'react-native';
 //import all the components we are going to use.
 
+import bg from '../../assets/bg.png'
+
 const SCREEN_WIDTH = Dimensions.get('window').width;
 class SwipeableCard extends React.Component {
   constructor() {
@@ -179,6 +181,7 @@ export default class Sample extends React.Component {
 
   render() {
     return (
+      <ImageBackground source={bg} style={globalStyles.background}>
       <View style={styles.MainContainer}>
         {this.state.Sample_Card_Array.map((item, key) => (
           <SwipeableCard
@@ -191,6 +194,7 @@ export default class Sample extends React.Component {
           <Text style={{ fontSize: 22, color: '#000' }}>No Cards Found.</Text>
         ) : null}
       </View>
+      </ImageBackground>  
     );
   }
 }

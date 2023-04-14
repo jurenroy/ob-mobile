@@ -5,6 +5,7 @@ import global from '../../Components/global';
 import { Pets } from '../../Components/Pets';
 import { Petss } from '../../Components/Petss';
 import { globalStyles } from '../../Components/styles';
+import bg from '../../assets/bg.png'
 
 
 const SCREEN_HEIGHT = 500
@@ -209,6 +210,7 @@ export default class HomePage extends React.Component {
 
   render() {
     return (
+      <ImageBackground source={bg} style={globalStyles.background}>
       <View style={{ flex: 1 }}>
         <View style={{ height: 0 }}>
           </View>
@@ -234,6 +236,7 @@ export default class HomePage extends React.Component {
         </View>
         
       </View>
+      </ImageBackground>
 
     );
   }
