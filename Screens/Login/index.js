@@ -1,5 +1,5 @@
 import { useState} from 'react';
-import { Text, View, TextInput, Pressable, Image } from 'react-native';
+import { Text, View, TextInput, Pressable, Image, ImageBackground } from 'react-native';
 import { globalStyles } from '../../Components/styles';
 import { useSelector, useDispatch } from "react-redux";
 import { setLoginStatus} from '../../Slices/Data/DataSlice';

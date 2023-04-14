@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, Pressable, View, Dimensions, Image, Animated, PanResponder } from 'react-native';
+import { StyleSheet, Text, Pressable, View, Dimensions, Image, Animated, PanResponder, ImageBackground } from 'react-native';
 import global from '../../Components/global';
 import { Pets } from '../../Components/Pets';
 import { Petss } from '../../Components/Petss';

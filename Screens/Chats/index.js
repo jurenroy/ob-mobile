@@ -1,4 +1,4 @@
-import { Image, Text, View, Pressable, ScrollView} from 'react-native';
+import { Image, Text, View, Pressable, ScrollView, ImageBackground} from 'react-native';
 import { useSelector, useDispatch } from "react-redux";
 import Logos from '../../Components/Logos';
 import { globalStyles } from '../../Components/styles';

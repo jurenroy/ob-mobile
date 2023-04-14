@@ -3,6 +3,7 @@ import { View } from 'react-native';
 import Logos from '../../Components/Logos';
 import Cat from './Cat';
 import bg from '../../assets/bg.png'
+import { ImageBackground } from 'react-native';
 
 export default function Cats({navigation}) {
 

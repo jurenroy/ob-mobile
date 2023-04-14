@@ -1,4 +1,4 @@
-import { Image, Text, View, Pressable, Button} from 'react-native';
+import { Image, Text, View, Pressable, Button, ImageBackground} from 'react-native';
 import { useSelector, useDispatch } from "react-redux";
 import { setLoginStatus, setImage} from '../../Slices/Data/DataSlice';
 import Logos from '../../Components/Logos';

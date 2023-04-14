@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 //import react in our code.
 
-import { Platform, StyleSheet, View, Text, Dimensions, Animated, PanResponder,} from 'react-native';
+import { Platform, StyleSheet, View, Text, Dimensions, Animated, PanResponder,Image, ImageBackground} from 'react-native';
 //import all the components we are going to use.
 
 import bg from '../../assets/bg.png'

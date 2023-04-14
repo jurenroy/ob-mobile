@@ -1,4 +1,4 @@
-import { Image, Text, View, Pressable, ScrollView, TextInput} from 'react-native';
+import { Image, Text, View, Pressable, ScrollView, TextInput, ImageBackground} from 'react-native';
 import { useState } from 'react';
 import { useSelector } from "react-redux";
 import Logos from '../../Components/Logos';

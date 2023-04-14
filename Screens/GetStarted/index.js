@@ -1,4 +1,4 @@
-import { Text, View, Pressable, Image} from 'react-native';
+import { Text, View, Pressable, Image, ImageBackground} from 'react-native';
 import { globalStyles } from '../../Components/styles';
 import bg from '../../assets/bg.png'
 
@@ -21,7 +21,7 @@ export default function GetStarted({navigation}) {
           <Text style={globalStyles.labelss}>By Tapping "Get Started" you agreed to our</Text>
           <Text style={globalStyles.hyper}>Terms and Policies</Text>
 
-    </View>
+      </View>
     </ImageBackground>
   );
 }

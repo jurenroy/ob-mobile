@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Text, View, TextInput, Pressable, Image} from 'react-native';
+import { Text, View, TextInput, Pressable,Image, ImageBackground} from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
 import { globalStyles } from '../../Components/styles';
 import { useDispatch } from 'react-redux';
