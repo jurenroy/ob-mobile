@@ -1,29 +1,30 @@
 import { StyleSheet } from 'react-native';
+import bg from '../assets/bg.png'
 
 export const globalStyles = StyleSheet.create({
     container: {
       flex: 1,
-      background: linear-gradient(#9026C8, #610094, #3F0071, #150050, #000000),
+      background: bg.png,
       alignItems: 'center',
       justifyContent: 'center',
     },
     container2: {
         flex: 1,
-        background: linear-gradient(#9026C8, #610094, #3F0071, #150050, #000000),
+        background: 'linear-gradient(#9026C8, #610094, #3F0071, #150050, #000000)',
         flexDirection: 'column',
         alignItems: 'flex-start',
         justifyContent: 'center',
     },container3: {
       flex: 1,
-      background: linear-gradient(#9026C8, #610094, #3F0071, #150050, #000000),
+      background: 'linear-gradient(#9026C8, #610094, #3F0071, #150050, #000000)',
       alignItems: 'center',
     },container4: {
       flex: 1,
-      background: linear-gradient(#9026C8, #610094, #3F0071, #150050, #000000),
+      background: 'linear-gradient(#9026C8, #610094, #3F0071, #150050, #000000)',
       alignItems: 'center',
     },container5: {
       flex: 1,
-      background: linear-gradient(#9026C8, #610094, #3F0071, #150050, #000000),
+      background: 'linear-gradient(#9026C8, #610094, #3F0071, #150050, #000000)',
       flexDirection: 'column',
   },
     input: {
@@ -178,4 +179,9 @@ export const globalStyles = StyleSheet.create({
     titleChat: {
       fontWeight: 'bold', fontSize: 50, paddingBottom: 20, marginLeft: 130
     },
+    background: {
+      flex: 1,
+      //resizeMode: "cover",
+      //justifyContent: "center"
+    }
   });
