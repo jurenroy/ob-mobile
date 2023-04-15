@@ -15,7 +15,7 @@ import { handleRegistration } from '../../Components/handleRegistration';
 import { Dropdown } from 'react-native-element-dropdown';
 import DatePicker from 'react-native-modern-datepicker';
 import bg from '../../assets/bg.png'
-
+import { createUserProfile } from '../../api';
 
 export default function Registration({navigation}) {
   const dispatch = useDispatch()
@@ -38,6 +38,7 @@ export default function Registration({navigation}) {
   const handleDateChange = (date) => {
     setSelectedDate(date);
     setShowDatePicker(false);
+    setData({ ...data, birthday: date });
   };
   
     const genderOptions = [
@@ -64,6 +65,7 @@ export default function Registration({navigation}) {
       const handleSelect = (item) => {
         setValue(item.value);
         setIsFocus(false);
+        setData({ ...data, gender: value });
       };
  
   return (
@@ -218,6 +220,14 @@ export default function Registration({navigation}) {
                   Conv[8].push("Interested?          ")
                   Conv[9]=[]
                   Conv[9].push("Interested?          ")
+
+                  createUserProfile(data)
+                    .then((createdProfile) => {
+                      console.log('New user profile created:', createdProfile);
+                    })
+                    .catch((error) => {
+                      console.error('Error creating user profile:', error);
+                    });
   
                   setData({
                     name1: '',
