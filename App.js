@@ -13,6 +13,7 @@ import Dogs from "./Screens/Home1";
 import Cats from "./Screens/Home2";
 import Chats from "./Screens/Chats";
 import Conversation from "./Screens/Conversation";
+import Upload from "./Screens/Upload";
 
 const Stack = createNativeStackNavigator()
 
@@ -31,10 +32,12 @@ export default function App() {
     <Provider store={store}>
       <NavigationContainer>
         <Stack.Navigator >
+        
         <Stack.Screen name="Dashboard" component={Dashboard} options={headerOptions} />
           <Stack.Screen name="Get Started" component={GetStarted} options={headerOptions} />
           <Stack.Screen name="Login" component={Login} options={headerOptions} />
-          <Stack.Screen name="Registration" component={Registration} options={headerOptions} />        
+          <Stack.Screen name="Registration" component={Registration} options={headerOptions} />  
+          <Stack.Screen name="Upload Image" component={Upload} options={headerOptions} />     
           <Stack.Screen name="Forgot Password" component={ForgotPassword} options={headerOptions} />
           <Stack.Screen name="Home" component={Home} options={headerOptions} />
           <Stack.Screen name="Home(Dogs)" component={Dogs} options={headerOptions} />
@@ -42,6 +45,7 @@ export default function App() {
           <Stack.Screen name="Chats" component={Chats} options={headerOptions} />
           <Stack.Screen name="Conversation" component={Conversation} options={headerOptions} />
           <Stack.Screen name="Profile" component={Profile} options={headerOptions} />
+          
           </Stack.Navigator>      
       </NavigationContainer>
     </Provider>

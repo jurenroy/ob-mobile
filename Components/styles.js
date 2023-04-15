@@ -324,5 +324,25 @@ export const globalStyles = StyleSheet.create({
       top: 10,
       right: 15,
       color:'white'
+    },dropdown: {
+      height: '6%',
+      width: '75%',
+      borderColor: 'white',
+      borderWidth: 2,
+      borderRadius: 10,
+      paddingHorizontal: 2,
+      marginBottom: 15,
+      alignItems: 'center',
+      justifyContent: 'center',
+      textAlign:'center',
+      },
+    value: {
+      position: 'absolute',
+      left: 5,
+      right: 5,
+      textAlign: 'center',
+      alignItems:'center',
+      opacity: 0,
     },
+    
   });

@@ -7,6 +7,8 @@ export const DataSlice = createSlice({
     initialState: {
         firstName: '',
         lastName: '',
+        gender: '',
+        birthday:'',
         email: '',
         password: '',
         loginStatus: '',
@@ -19,6 +21,12 @@ export const DataSlice = createSlice({
         },
         setLastName: (state, action) => {
             state.lastName = action.payload
+        },
+        setGender: (state, action) => {
+            state.gender = action.payload
+        },
+        setBirthday: (state, action) => {
+            state.birthday = action.payload
         },
         setEmail: (state, action) => {
             state.email = action.payload
@@ -40,6 +48,6 @@ export const DataSlice = createSlice({
 })
 
 
-export const { setFirstName, setLastName, setEmail, setPassword, setLoginStatus, setImage, setNumber } = DataSlice.actions
+export const { setFirstName, setLastName,setGender,setBirthday, setEmail, setPassword, setLoginStatus, setImage, setNumber } = DataSlice.actions
 
 export default DataSlice.reducer

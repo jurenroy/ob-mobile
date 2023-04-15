@@ -1,32 +1,27 @@
 import { useState } from 'react';
-<<<<<<< HEAD
 import { Text, View, TextInput, Pressable,Image, ImageBackground} from 'react-native';
-=======
-import { Text, View, TextInput, Pressable, Image, TouchableOpacity,StyleSheet} from 'react-native';
->>>>>>> origin/Ednilan
-import DropDownPicker from 'react-native-dropdown-picker';
 import { globalStyles } from '../../Components/styles';
+import DropDownPicker from 'react-native-dropdown-picker';
 import { useDispatch } from 'react-redux';
-import { setFirstName, setLastName, setEmail, setPassword, setImage } from '../../Slices/Data/DataSlice';
+import { setFirstName, setLastName,setGender,setBirthday, setEmail, setPassword, setImage } from '../../Slices/Data/DataSlice';
 import profiled from '../../assets/profiled.png'
 import { Petss } from '../../Components/Petss';
 import { Statetus } from '../../Components/Statetus';
 import { Conv } from '../../Components/Conv';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { useTogglePasswordVisibility} from '../../Components/useTogglePasswordVisibility'
+import { useToggleConfirmPasswordVisibility } from '../../Components/useToggleConfirmPasswordVisibility';
 import { handleRegistration } from '../../Components/handleRegistration';
-<<<<<<< HEAD
-import bg from '../../assets/bg.png'
-=======
 import { Dropdown } from 'react-native-element-dropdown';
->>>>>>> origin/Ednilan
-
+import DatePicker from 'react-native-modern-datepicker';
+import bg from '../../assets/bg.png'
 
 
 export default function Registration({navigation}) {
   const dispatch = useDispatch()
-  const { passwordVisibility, rightIcon, handlePasswordVisibility } =
-    useTogglePasswordVisibility();
+  const { passwordVisibility, rightIcon, handlePasswordVisibility } = useTogglePasswordVisibility();
+  const { confirmPasswordVisibility, rightIconConfirm, handleConfirmPasswordVisibility } = useToggleConfirmPasswordVisibility();
+
     const [data, setData] = useState({
       firstName: '',
       lastName: '',
@@ -37,7 +32,13 @@ export default function Registration({navigation}) {
       confirmPassword: '',
     });
 
+    const [showDatePicker, setShowDatePicker] = useState(false);
+    const [selectedDate, setSelectedDate] = useState(null);
 
+  const handleDateChange = (date) => {
+    setSelectedDate(date);
+    setShowDatePicker(false);
+  };
   
     const genderOptions = [
       { label: 'Male', value: 'male' },
@@ -68,45 +69,34 @@ export default function Registration({navigation}) {
   return (
     <ImageBackground source={bg} style={globalStyles.background}>
     <View style={globalStyles.container}>
-      <Image source = {require('../../assets/PAPAPP.png')} style = {globalStyles.logoism}/>
+      <Image source = {require('../../assets/ob.png')} style = {globalStyles.logoism}/>
       <Text style={globalStyles.lable}></Text>
       <Text style={globalStyles.title}>Registration</Text>
       <TextInput
       style={globalStyles.input} 
       placeholder='First Name' 
+      placeholderTextColor={'white'}
       value={data.firstName}
       onChangeText={text => {setData({...data,firstName: text})}}/>
       
       <TextInput
       style={globalStyles.input} 
       placeholder='Last Name' 
+      placeholderTextColor={'white'}
       value={data.lastName}
       onChangeText={text => {setData({...data,lastName: text})}}/>
       
-      {/* <DropDownPicker
-        open={true}
-        items={genderOptions}
-        defaultValue={data.gender}
-        placeholder="Select Gender"
-        style={{ backgroundColor: '#fafafa' }}
-        itemStyle={{
-          justifyContent: 'flex-start',
-        }}
-        dropDownStyle={{ backgroundColor: '#fafafa' }}
-        onChangeItem={(item) => handleGenderSelect(item.value)}
-      /> */}
-
       <Dropdown
-          style={[styles.dropdown, isFocus && { borderColor: 'blue' }]}
+          style={[globalStyles.dropdown, isFocus && { borderColor: '#7EE0FF' }]}
           data={gender}
           maxHeight={300}
           labelField="label"
           valueField="value"
           placeholder={!isFocus ? 'Select Gender' : '...'}
-          placeholderStyle={{ textAlign: "center" }}
+          placeholderStyle={{ textAlign: "center",color:'white' }}
           value={value}
-          itemTextStyle={{textAlign: 'center', marginTop:-15,marginBottom:-15}} 
-          selectedTextStyle={{textAlign: 'center', alignItems: 'center', justifyContent: 'center' }} 
+          itemTextStyle={{textAlign: 'center', marginTop:-15,marginBottom:-15,color:'white', backgroundColor:'#33083a'}} 
+          selectedTextStyle={{textAlign: 'center', alignItems: 'center', justifyContent: 'center',color:'white'}} 
           onChange={handleSelect}
           onFocus={() => setIsFocus(true)}
           onBlur={() => setIsFocus(false)}
@@ -115,7 +105,7 @@ export default function Registration({navigation}) {
           renderValue={() => {
             if (value) {
               return (
-                <Text style={styles.value}>
+                <Text style={globalStyles.value}>
                   {value}
                 </Text>
               );
@@ -125,34 +115,56 @@ export default function Registration({navigation}) {
         />
 
       <TextInput
-      style={globalStyles.input} 
-      placeholder='Birthday' 
-      value={data.birthday}
-      onChangeText={text => {setData({...data,birthday: text})}}/>
+        style={globalStyles.input}
+        placeholder="Birthday"
+        placeholderTextColor={'white'}
+        value={selectedDate}
+        onFocus={() => setShowDatePicker(true)}
+      />
+      {showDatePicker && (
+        <DatePicker
+          date={selectedDate || new Date()}
+          mode="date"
+          placeholder="Select date"
+          format="YYYY-MM-DD"
+          minDate="1900-01-01"
+          maxDate={new Date()}
+          onDateChange={handleDateChange}
+        />
+      )}
 
       <TextInput
       style={globalStyles.input} 
-      placeholder='Email Address' 
+      placeholder='Email Address'
+      placeholderTextColor={'white'} 
       value={data.email}
       onChangeText={text => {setData({...data,email: text})}}/>
-      
+
+      <View style={globalStyles.inputContainer}>
       <TextInput 
       secureTextEntry = {passwordVisibility}
-      style={globalStyles.input} 
+      style={globalStyles.inputpass} 
       placeholder='Password' 
+      placeholderTextColor={'white'}
       value={data.password}
       onChangeText={text => {setData({...data,password: text})}}/>
+      <Pressable onPress={handlePasswordVisibility} style={globalStyles.eyeIcon}>
+          <MaterialCommunityIcons name={rightIcon} size={22} color="white" />
+        </Pressable>
+      </View>
       
+      <View style={globalStyles.inputContainer}>
       <TextInput 
-      secureTextEntry = {passwordVisibility}
-      style={globalStyles.input} 
+      secureTextEntry = {confirmPasswordVisibility}
+      style={globalStyles.inputpass} 
       placeholder='Confirm Password' 
+      placeholderTextColor={'white'}
       value={data.confirmPassword}
       onChangeText={text => {setData({...data,confirmPassword: text})}}/>
-
-      <Pressable onPress={handlePasswordVisibility}>
-        <MaterialCommunityIcons name={rightIcon} size={22} color="#232323" />
-      </Pressable>
+        <Pressable onPress={handleConfirmPasswordVisibility} style={globalStyles.eyeIcon}>
+          <MaterialCommunityIcons name={rightIconConfirm} size={22} color="white" />
+        </Pressable>
+      </View>
 
       <Pressable style={globalStyles.buttons} onPress={ () => {if (data.firstName!=''&&data.lastName!=''&&data.email!=''&&data.password!=''&&data.confirmPassword!=''){
             if (data.email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)){         
@@ -160,6 +172,8 @@ export default function Registration({navigation}) {
                 if (data.password.length>8 && data.password.length>8){
                   dispatch(setFirstName(data.firstName))
                   dispatch(setLastName(data.lastName))
+                  dispatch(setGender(value))
+                  dispatch(setBirthday(selectedDate))
                   dispatch(setEmail(data.email))
                   dispatch(setPassword(data.password)) 
                   dispatch(setImage(Image.resolveAssetSource(profiled).uri)) 
@@ -213,7 +227,7 @@ export default function Registration({navigation}) {
                     password1: '',
                     password2: '',
                   })
-                  navigation.replace('Login')
+                  navigation.replace('Upload Image')
                   alert("Account Registered")
                 }else{
                   alert("Password too weak")
@@ -256,28 +270,3 @@ export default function Registration({navigation}) {
 
 
 
-const styles = StyleSheet.create({
-  dropdown: {
-    height: '6%',
-    width: '75%',
-    borderColor: 'gray',
-    borderWidth: 0.5,
-    borderRadius: 20,
-    paddingHorizontal: 2,
-    marginBottom: 15,
-    borderColor: 'black',
-    alignItems: 'center',
-    justifyContent: 'center',
-    textAlign:'center',
-    },
-  value: {
-    position: 'absolute',
-    left: 5,
-    right: 5,
-    textAlign: 'center',
-    alignItems:'center',
-    opacity: 0,
-  },
- 
-
-});

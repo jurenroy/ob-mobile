@@ -22,10 +22,11 @@ export default function ForgotPassword({navigation}) {
       <TextInput
       style={globalStyles.input} 
       placeholder='Email Address' 
+      placeholderTextColor='white'
       value={data.email}
       onChangeText={text => {setData({...data,email: text})}}/>
 
-      <Pressable style={globalStyles.buttons} onPress={() => {
+      <Pressable style={[globalStyles.buttons,{width:'70%'}]} onPress={() => {
         if (data.email!=''){
           if (data.email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)){
             if (data.email === storedEmail){

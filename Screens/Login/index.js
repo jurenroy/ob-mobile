@@ -22,8 +22,6 @@ export default function Login({navigation}) {
 
   return (
     <ImageBackground source={bg} style={globalStyles.background}>
-    <View style={globalStyles.cont}>
-    <ImageBackground source={cont} style={globalStyles.background}>
       
     <View style={globalStyles.container}>
       
@@ -93,8 +91,6 @@ export default function Login({navigation}) {
          navigation.replace('Registration'); }}>Don't have an account? Register</Text>
       
     
-    </View>
-    </ImageBackground>
     </View>
     </ImageBackground>
   );
