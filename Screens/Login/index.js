@@ -10,14 +10,14 @@ import cont from '../../assets/cont.png'
 
 export default function Login({navigation}) {
   const [data, setData] = useState({
-    email: '',
+    username: '',
     password: '',
     loginStatus: 'Logged',
   })
   const { passwordVisibility, rightIcon, handlePasswordVisibility } =
     useTogglePasswordVisibility();
   const dispatch = useDispatch()
-  const storedEmail = useSelector((state) => state.data.email)
+  const storedUsername = useSelector((state) => state.data.username)
   const storedPassword = useSelector((state) => state.data.password)
 
   return (
@@ -31,8 +31,8 @@ export default function Login({navigation}) {
       style={globalStyles.input} 
       placeholder='Email Address' 
       placeholderTextColor={'white'}
-      value={data.email}
-      onChangeText={text => {setData({...data,email: text})}}
+      value={data.username}
+      onChangeText={text => {setData({...data,username: text})}}
       />      
       
       <View style={globalStyles.inputContainer}>
@@ -50,11 +50,11 @@ export default function Login({navigation}) {
       </View>
 
       <Pressable style={globalStyles.buttons} onPress={() => {
-        if (data.email!=''&&data.password!=''){
-          if (data.email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)){
-            if (data.email === storedEmail && data.password === storedPassword){
+        if (data.username!=''&&data.password!=''){
+          if (data.username.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)){
+            if (data.username === storedUsername && data.password === storedPassword){
               setData({
-                email: '',
+                username: '',
                 password: '',
                 loginStatus: 'Logged'
               })
@@ -67,9 +67,9 @@ export default function Login({navigation}) {
           }else{
             alert("Invalid Email")
           }
-        }else if (data.email!=''&&data.password==''){
+        }else if (data.username!=''&&data.password==''){
           alert("Please Input Password")
-        }else if (data.email==''&&data.password!=''){
+        }else if (data.username==''&&data.password!=''){
           alert("Please Input Email")
         }else{
           alert("Please Input Credentials")
@@ -79,13 +79,13 @@ export default function Login({navigation}) {
       </Pressable>
       <Text style={globalStyles.hyper} onPress={() => {
         setData({
-          email: '',
+          username: '',
           password: '',
           })
           navigation.navigate('Forgot Password'); }}>Forgot Password?</Text>
       <Text style={globalStyles.hyper} onPress={() => {
         setData({
-          email: '',
+          username: '',
           password: '',
           })
          navigation.replace('Registration'); }}>Don't have an account? Register</Text>

@@ -9,7 +9,7 @@ export const DataSlice = createSlice({
         lastName: '',
         gender: '',
         birthday:'',
-        email: '',
+        username: '',
         password: '',
         loginStatus: '',
         image: Image.resolveAssetSource(profiled).uri,
@@ -28,8 +28,8 @@ export const DataSlice = createSlice({
         setBirthday: (state, action) => {
             state.birthday = action.payload
         },
-        setEmail: (state, action) => {
-            state.email = action.payload
+        setUsername: (state, action) => {
+            state.username = action.payload
         },
         setPassword: (state, action) => {
             state.password = action.payload
@@ -48,6 +48,6 @@ export const DataSlice = createSlice({
 })
 
 
-export const { setFirstName, setLastName,setGender,setBirthday, setEmail, setPassword, setLoginStatus, setImage, setNumber } = DataSlice.actions
+export const { setFirstName, setLastName,setGender,setBirthday, setUsername, setPassword, setLoginStatus, setImage, setNumber } = DataSlice.actions
 
 export default DataSlice.reducer

@@ -3,7 +3,7 @@ import { Text, View, TextInput, Pressable,Image, ImageBackground} from 'react-na
 import { globalStyles } from '../../Components/styles';
 import DropDownPicker from 'react-native-dropdown-picker';
 import { useDispatch } from 'react-redux';
-import { setFirstName, setLastName,setGender,setBirthday, setEmail, setPassword, setImage } from '../../Slices/Data/DataSlice';
+import { setFirstName, setLastName,setGender,setBirthday, setUsername, setPassword, setImage } from '../../Slices/Data/DataSlice';
 import profiled from '../../assets/profiled.png'
 import { Petss } from '../../Components/Petss';
 import { Statetus } from '../../Components/Statetus';
@@ -23,12 +23,16 @@ export default function Registration({navigation}) {
   const { confirmPasswordVisibility, rightIconConfirm, handleConfirmPasswordVisibility } = useToggleConfirmPasswordVisibility();
 
     const [data, setData] = useState({
-      firstName: '',
-      lastName: '',
+      first_name: '',
+      last_name: '',
       gender: '',
       birthday: '',
-      email: '',
+      username: '',
       password: '',
+      
+    });
+
+    const [data2, setData2] = useState({
       confirmPassword: '',
     });
 
@@ -78,15 +82,15 @@ export default function Registration({navigation}) {
       style={globalStyles.input} 
       placeholder='First Name' 
       placeholderTextColor={'white'}
-      value={data.firstName}
-      onChangeText={text => {setData({...data,firstName: text})}}/>
+      value={data.first_name}
+      onChangeText={text => {setData({...data,first_name: text})}}/>
       
       <TextInput
       style={globalStyles.input} 
       placeholder='Last Name' 
       placeholderTextColor={'white'}
-      value={data.lastName}
-      onChangeText={text => {setData({...data,lastName: text})}}/>
+      value={data.last_name}
+      onChangeText={text => {setData({...data,last_name: text})}}/>
       
       <Dropdown
           style={[globalStyles.dropdown, isFocus && { borderColor: '#7EE0FF' }]}
@@ -96,7 +100,7 @@ export default function Registration({navigation}) {
           valueField="value"
           placeholder={!isFocus ? 'Select Gender' : '...'}
           placeholderStyle={{ textAlign: "center",color:'white' }}
-          value={value}
+          value={data.gender}
           itemTextStyle={{textAlign: 'center', marginTop:-15,marginBottom:-15,color:'white', backgroundColor:'#33083a'}} 
           selectedTextStyle={{textAlign: 'center', alignItems: 'center', justifyContent: 'center',color:'white'}} 
           onChange={handleSelect}
@@ -128,8 +132,8 @@ export default function Registration({navigation}) {
           date={selectedDate || new Date()}
           mode="date"
           placeholder="Select date"
-          format="YYYY-MM-DD"
-          minDate="1900-01-01"
+          format="DD/MM/YYYY" // Updated format
+          minDate="01-01-1900"
           maxDate={new Date()}
           onDateChange={handleDateChange}
         />
@@ -139,8 +143,8 @@ export default function Registration({navigation}) {
       style={globalStyles.input} 
       placeholder='Email Address'
       placeholderTextColor={'white'} 
-      value={data.email}
-      onChangeText={text => {setData({...data,email: text})}}/>
+      value={data.username}
+      onChangeText={text => {setData({...data,username: text})}}/>
 
       <View style={globalStyles.inputContainer}>
       <TextInput 
@@ -161,22 +165,22 @@ export default function Registration({navigation}) {
       style={globalStyles.inputpass} 
       placeholder='Confirm Password' 
       placeholderTextColor={'white'}
-      value={data.confirmPassword}
-      onChangeText={text => {setData({...data,confirmPassword: text})}}/>
+      value={data2.confirmPassword}
+      onChangeText={text => {setData2({...data2,confirmPassword: text})}}/>
         <Pressable onPress={handleConfirmPasswordVisibility} style={globalStyles.eyeIcon}>
           <MaterialCommunityIcons name={rightIconConfirm} size={22} color="white" />
         </Pressable>
       </View>
 
-      <Pressable style={globalStyles.buttons} onPress={ () => {if (data.firstName!=''&&data.lastName!=''&&data.email!=''&&data.password!=''&&data.confirmPassword!=''){
-            if (data.email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)){         
-              if (data.password==data.confirmPassword){
+      <Pressable style={globalStyles.buttons} onPress={ () => {if (data.first_name!=''&&data.last_name!=''&&data.username!=''&&data.password!=''&&data2.confirmPassword!=''){
+            if (data.username.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)){         
+              if (data.password==data2.confirmPassword){
                 if (data.password.length>8 && data.password.length>8){
-                  dispatch(setFirstName(data.firstName))
-                  dispatch(setLastName(data.lastName))
-                  dispatch(setGender(value))
+                  dispatch(setFirstName(data.first_name))
+                  dispatch(setLastName(data.last_name))
+                  dispatch(setGender(data.gender))
                   dispatch(setBirthday(selectedDate))
-                  dispatch(setEmail(data.email))
+                  dispatch(setUsername(data.username))
                   dispatch(setPassword(data.password)) 
                   dispatch(setImage(Image.resolveAssetSource(profiled).uri)) 
                   global.state=0
@@ -221,24 +225,19 @@ export default function Registration({navigation}) {
                   Conv[9]=[]
                   Conv[9].push("Interested?          ")
 
+                  console.log(data)
                   createUserProfile(data)
-                    .then((createdProfile) => {
-                      console.log('New user profile created:', createdProfile);
-                    })
-                    .catch((error) => {
-                      console.error('Error creating user profile:', error);
-                    });
-  
-                  setData({
-                    name1: '',
-                    name2: '',
-                    username: '',
-                    email: '',
-                    password1: '',
-                    password2: '',
+                  .then((response) => {
+                    console.log(response.data);
+                    alert('Successfully Registered!')
                   })
+                  .catch((error) => {
+                    console.log(error);
+                  });
+  
+                 
                   navigation.replace('Upload Image')
-                  alert("Account Registered")
+                 
                 }else{
                   alert("Password too weak")
                 }              
@@ -249,17 +248,17 @@ export default function Registration({navigation}) {
               alert("Invalid Email")
             }
           }else{
-            if (data.firstName==''&&data.lastName!=''&&data.email!=''&&data.password!=''&&data.confirmPassword!=''){
+            if (data.first_name==''&&data.last_name!=''&&data.username!=''&&data.password!=''&&data2.confirmPassword!=''){
               alert("Please Input Firstname")
-            }else if (data.firstName!=''&&data.lastName==''&&data.email!=''&&data.password!=''&&data.confirmPassword!=''){
+            }else if (data.first_name!=''&&data.last_name==''&&data.username!=''&&data.password!=''&&data2.confirmPassword!=''){
               alert("Please Input Lastname")
-            }else if (data.firstName!=''&&data.lastName!=''&&data.email==''&&data.password!=''&&data.confirmPassword!=''){
-              alert("Please Input Valid email")
-            }else if (data.firstName!=''&&data.lastName!=''&&data.email!=''&&data.password==''&&data.confirmPassword!=''){
+            }else if (data.first_name!=''&&data.last_name!=''&&data.username==''&&data.password!=''&&data2.confirmPassword!=''){
+              alert("Please Input Valid Email")
+            }else if (data.first_name!=''&&data.last_name!=''&&data.username!=''&&data.password==''&&data2.confirmPassword!=''){
               alert("Please Input Password")
-            }else if (data.firstName!=''&&data.lastName!=''&&data.email!=''&&data.password!=''&&data.confirmPassword==''){
+            }else if (data.first_name!=''&&data.last_name!=''&&data.username!=''&&data.password!=''&&data2.confirmPassword==''){
               alert("Please Confirm password")
-            }else if (data.firstName==''||data.lastName==''||data.email==''||data.password==''||data.confirmPassword==''){
+            }else if (data.first_name==''||data.last_name==''||data.username==''||data.password==''||data2.confirmPassword==''){
                 alert("Please Input Credentials")
               }
           } 
@@ -269,7 +268,7 @@ export default function Registration({navigation}) {
 
       <Text style={globalStyles.hyper} onPress={() => {
         setData({
-          email: '',
+          username: '',
           password: '',
           })
          navigation.replace('Login'); }}>Already have an account? Login</Text>

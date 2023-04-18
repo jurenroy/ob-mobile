@@ -13,11 +13,11 @@ export const fetchUserProfiles = async () => {
 }
 
 // Create a new user profile
-export const createUserProfile = async (data) => {
-  try {
-    const response = await axios.post('http://localhost:8000/api/user_profile/', data);
-    return response.data.data;
-  } catch (error) {
-    console.error(error);
-  }
+
+const api = axios.create({
+  baseURL: "http://192.168.115.196:8000/",
+});
+
+export function createUserProfile(data) {
+  return api.post("api/v1/accounts/users/", data);
 }
