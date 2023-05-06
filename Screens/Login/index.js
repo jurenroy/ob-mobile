@@ -20,7 +20,9 @@ export default function Login({ navigation }) {
   const [data, setData] = useState({
     username: "",
     password: "",
-    // loginStatus: 'Logged',
+  });
+  const [data2, setData2] = useState({
+    loginStatus: 'Logged',
   });
   const { passwordVisibility, rightIcon, handlePasswordVisibility } =
     useTogglePasswordVisibility();
@@ -68,19 +70,25 @@ export default function Login({ navigation }) {
         <Pressable
           style={globalStyles.buttons}
           onPress={() => {
-            UserLogin(data, {
-              headers: {
-                "Content-Type": "application/json",
-              },
-            })
-              .then((response) => {
-                navigation.replace("Dashboard");
+            if (data.email!=''&&data.password!=''){
+              UserLogin(data, {
+                headers: {
+                  "Content-Type": "application/json",
+                },
               })
-              .catch((error) => {
-                alert(
-                  "Invalid Credentials!\nor your account may not activated\nPlease check your email for activation"
-                );
-              });
+                .then((response) => {
+                  dispatch(setLoginStatus(data2.loginStatus))
+                  navigation.replace('Dashboard')
+                  alert("Account Logged in")
+                })
+                .catch((error) => {
+                  alert(
+                    "Invalid Credentials!\nor your account may not activated\nPlease check your email for activation"
+                  );
+                });  
+            }else{
+              alert("Please Input Credentials")
+            }
           }}
         >
           <Text style={globalStyles.buttonsLabels}>Login</Text>

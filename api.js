@@ -2,20 +2,8 @@
 
 import axios from "axios";
 
-// // Fetch all user profiles
-// export const fetchUserProfiles = async () => {
-//   try {
-//     const response = await axios.get("http://localhost:8000/api/user_profile/");
-//     return response.data.data;
-//   } catch (error) {
-//     console.error(error);
-//   }
-// };
-
-// Create a new user profile
-
 const api = axios.create({
-  baseURL: "http://192.168.1.5:8000/",
+  baseURL: "http:jurenroy.pythonanywhere.com/",
 });
 
 export function createUserProfile(data, headers) {
