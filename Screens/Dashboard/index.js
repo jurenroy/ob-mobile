@@ -5,7 +5,7 @@ import bg from '../../assets/bg.png'
 
 
 export default function Dashboard({navigation}) {
-  const isLoggedIn = useSelector((state) => state.data.loginStatus === 'Logged');  
+  const isLoggedIn = useSelector((state) => state.data.isLoggedIn === true);  
 
   return (    
     <ImageBackground source={bg} style={globalStyles.background}>

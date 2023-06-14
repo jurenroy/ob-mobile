@@ -3,7 +3,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http:jurenroy.pythonanywhere.com/",
+  baseURL: "https://onlinebugaw.pythonanywhere.com/",
 });
 
 export function createUserProfile(data, headers) {

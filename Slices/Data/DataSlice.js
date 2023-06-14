@@ -5,46 +5,19 @@ import { Image } from 'react-native';
 export const DataSlice = createSlice({
     name: 'data',
     initialState: {
-        firstName: '',
-        lastName: '',
-        gender: '',
-        birthday:'',
+        isLoggedIn: false,
         username: '',
-        password: '',
-        loginStatus: '',
-        image: Image.resolveAssetSource(profiled).uri,
-        number: '',
-    },
-    reducers: {
-        setFirstName: (state, action) => {
-            state.firstName = action.payload
+      },
+      reducers: {
+        login: (state, action) => {
+          state.isLoggedIn = true;
+          state.username = action.payload;
         },
-        setLastName: (state, action) => {
-            state.lastName = action.payload
+        logout: (state) => {
+          state.isLoggedIn = false;
+          state.username = '';
         },
-        setGender: (state, action) => {
-            state.gender = action.payload
-        },
-        setBirthday: (state, action) => {
-            state.birthday = action.payload
-        },
-        setUsername: (state, action) => {
-            state.username = action.payload
-        },
-        setPassword: (state, action) => {
-            state.password = action.payload
-        },
-        setLoginStatus: (state, action) => {
-            state.loginStatus = action.payload
-        },
-        setImage: (state, action) => {
-            state.image = action.payload
-        },
-        setNumber: (state, action) => {
-            state.number = action.payload
-        },
-        
-    },
+      },
 })
 
 

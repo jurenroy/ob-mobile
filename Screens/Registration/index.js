@@ -252,13 +252,6 @@ export default function Registration({ navigation }) {
               ) {
                 if (data.password == data2.confirmPassword) {
                   if (data.password.length > 8 && data.password.length > 8) {
-                    dispatch(setFirstName(data.first_name));
-                    dispatch(setLastName(data.last_name));
-                    dispatch(setGender(data.gender));
-                    dispatch(setBirthday(selectedDate));
-                    // dispatch(setemail(data.email));
-                    dispatch(setPassword(data.password));
-                    dispatch(setImage(Image.resolveAssetSource(profiled).uri));
                     global.state = 0;
                     global.dogState = 0;
                     global.catState = 0;

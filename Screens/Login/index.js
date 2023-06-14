@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import { globalStyles } from "../../Components/styles";
 import { useSelector, useDispatch } from "react-redux";
-import { setLoginStatus } from "../../Slices/Data/DataSlice";
+import { login } from "../../Slices/Data/DataSlice";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useTogglePasswordVisibility } from "../../Components/useTogglePasswordVisibility";
 import bg from "../../assets/bg.png";
@@ -77,7 +77,7 @@ export default function Login({ navigation }) {
                 },
               })
                 .then((response) => {
-                  dispatch(setLoginStatus(data2.loginStatus))
+                  dispatch(login(data.username));
                   navigation.replace('Dashboard')
                   alert("Account Logged in")
                 })

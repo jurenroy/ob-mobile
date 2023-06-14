@@ -28,7 +28,7 @@ export default function Logos(props) {
       </Pressable>
 
       <Pressable onPress={() => {props.navigation.replace('Profile')} }>
-        {storedImage && <Image source={{ uri: storedImage }} style={globalStyles.logoism3} />}
+      <Image source = {require('../assets/messages.png')} style = {globalStyles.logoism2}/>
       </Pressable>
 
       </View>  
