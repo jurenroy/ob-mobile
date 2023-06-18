@@ -9,7 +9,7 @@
     "splash": {
       "image": "./assets/ob.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff",
+      "backgroundColor": "#9026C8",
       "plugins": [
         [
           "expo-image-picker",
@@ -31,7 +31,7 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/ob.png",
-        "backgroundColor": "#FFFFFF"
+        "backgroundColor": "#9026C8"
       },
       "package": "com.jurenroy.OB",
       "config": {
