@@ -21,6 +21,6 @@ export const DataSlice = createSlice({
 })
 
 
-export const { setFirstName, setLastName,setGender,setBirthday, setUsername, setPassword, setLoginStatus, setImage, setNumber } = DataSlice.actions
+export const { login, logout } = DataSlice.actions
 
 export default DataSlice.reducer

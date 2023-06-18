@@ -44,7 +44,15 @@ export default function App() {
           <Stack.Screen name="Home(Cats)" component={Cats} options={headerOptions} />
           <Stack.Screen name="Chats" component={Chats} options={headerOptions} />
           <Stack.Screen name="Conversation" component={Conversation} options={headerOptions} />
-          <Stack.Screen name="Profile" component={Profile} options={headerOptions} />
+          <Stack.Screen
+            name="Profile"
+            component={Profile}
+            options={{
+              ...headerOptions,
+              headerRight: () => null, // Hide the header right component
+            }}
+            initialParams={{ username: 'your_username_here' }} // Pass the username as a parameter
+          />
           
           </Stack.Navigator>      
       </NavigationContainer>

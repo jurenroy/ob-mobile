@@ -158,8 +158,8 @@ export const globalStyles = StyleSheet.create({
       marginLeft:5
     },
     logoHearts: {
-      width: 100,
-       height: 100
+      width: 150,
+       height: 150
     },
     sendism: {
       width: 50, 

@@ -28,7 +28,6 @@ export default function Login({ navigation }) {
     useTogglePasswordVisibility();
   const dispatch = useDispatch();
   const storedUsername = useSelector((state) => state.data.username);
-  const storedPassword = useSelector((state) => state.data.password);
 
   return (
     <ImageBackground source={bg} style={globalStyles.background}>
