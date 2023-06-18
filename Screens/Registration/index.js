@@ -306,7 +306,7 @@ export default function Registration({ navigation }) {
                         alert(
                           "Successfully Registered!\nPlease check your email\nfor activation"
                         );
-                        navigation.replace("Upload Image");
+                        navigation.replace('Upload', { username: data.username });
                       })
                       .catch((error) => {
                         console.log(error);

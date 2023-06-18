@@ -21,7 +21,7 @@ export default function Logos(props) {
   }, [username]);
 
   const profilePicSource = userProfilePic
-    ? { uri: userProfilePic }
+    ? { uri: `https://onlinebugaw.pythonanywhere.com/${userProfilePic}` }
     : require('../assets/profiled.png');
 
   return (
@@ -43,7 +43,7 @@ export default function Logos(props) {
       </Pressable>
 
       <Pressable onPress={() => {props.navigation.replace('Profile', { username })}}>
-        <Image source={profilePicSource} style={globalStyles.logoism2} />
+        <Image source={profilePicSource} style={globalStyles.logoism4} />
       </Pressable>
     </View>
   );

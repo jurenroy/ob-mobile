@@ -35,6 +35,10 @@ export default function Profile({ navigation, route }) {
     ? Math.floor((new Date() - new Date(userData.birthday)) / (1000 * 60 * 60 * 24 * 365.25))
     : null;
 
+  const profilePicSource = userData?.profile_pic
+    ? { uri: `https://onlinebugaw.pythonanywhere.com/${userData?.profile_pic}` }
+    : require('../../assets/profiled.png');
+
   return (
     <ImageBackground source={bg} style={globalStyles.background}>
       <View style={globalStyles.container3}>
@@ -42,21 +46,24 @@ export default function Profile({ navigation, route }) {
           <Logos navigation={navigation} />
         </View>
         <Text style={[globalStyles.title2, { marginBottom: -50, textAlign: 'center' }]}>Profile</Text>
-        
-        <Text style={[globalStyles.labels1, { textDecorationLine: 'underline' }]}>
-        {userData?.first_name} {userData?.last_name}, {ageInYears || 'Unknown'}
+        <View style={{ flexWrap: 'wrap', justifyContent: 'space-evenly', alignItems: 'center', flexDirection: 'row', display: 'flex' }}>
+        <Image source={profilePicSource} style={{width: 180, height: 180, borderRadius: 100, alignContent: 'center', marginTop: 30, marginBottom: 30}} />
+        </View>
+        <View style={{ flexWrap: 'wrap', justifyContent: 'space-evenly', alignItems: 'center', flexDirection: 'row', display: 'flex',}}>
+        <Text style={[globalStyles.labels1, { textDecorationLine: 'underline', marginBottom: 130, marginTop: -150}]}>
+          {userData?.first_name} {userData?.last_name}, {ageInYears || 'Unknown'}
         </Text>
+        </View>
         <Text style={globalStyles.labels}>Interested in: {userData?.gender === 'Male' ? 'Female' : 'Male'}</Text>
-        <View style={[globalStyles.labels11, { backgroundColor: '#461257' }]}>
-          <Text style={[globalStyles.labelss, { height: 90 }]}>Bio: i love online bugaw</Text>
-          <Text style={[globalStyles.labelss, { height: 40, marginTop: 0 }]}>Address: Cagayan de Oro City</Text>
+        <View style={[globalStyles.labels11, { backgroundColor: '#461257', height: 130 }]}>
+          <Text style={[globalStyles.labelss, { height: 40 }]}>  Bio: i love online bugaw</Text>
+          <Text style={[globalStyles.labelss, { height: 40, marginTop: 0 }]}>  Address: Cagayan de Oro City</Text>
         </View>
         <View style={{ flexWrap: 'wrap', justifyContent: 'space-evenly', alignItems: 'center', flexDirection: 'row', display: 'flex' }}>
           <Pressable
             style={globalStyles.buttons}
             onPress={() => {
-              dispatch(logout());
-              navigation.replace('Dashboard');
+              navigation.navigate('Upload', { username: username });
             }}
           >
             <Text style={globalStyles.buttonsLabels}>Edit Profile</Text>

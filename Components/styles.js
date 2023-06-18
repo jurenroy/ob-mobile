@@ -72,7 +72,6 @@ export const globalStyles = StyleSheet.create({
       fontSize: 20,
       color: 'white', 
       marginBottom:50,
-      marginLeft:80,
       width:250, 
       justifyContent: 'center',
       borderBottomColor: '#8a2be2', 
@@ -95,7 +94,7 @@ export const globalStyles = StyleSheet.create({
       width: 300,
       marginBottom:10,
       marginLeft:30,
-      marginTop:-30,
+      marginTop:30,
       fontWeight: 'bold',
       justifyContent:'center',
       borderRadius: 10,
@@ -148,7 +147,7 @@ export const globalStyles = StyleSheet.create({
     },
     logoism2: {
         width: 72,
-        height: 72
+        height: 72,
     },
     logoism3: {
       width: 50, 
@@ -156,6 +155,12 @@ export const globalStyles = StyleSheet.create({
       borderRadius: 50,
       marginTop:10,
       marginLeft:5
+    },
+    logoism4: {
+      width: 60, 
+      height: 60,
+      borderRadius: 50,
+      marginTop:5,
     },
     logoHearts: {
       width: 150,

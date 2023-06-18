@@ -37,7 +37,7 @@ export default function App() {
           <Stack.Screen name="Get Started" component={GetStarted} options={headerOptions} />
           <Stack.Screen name="Login" component={Login} options={headerOptions} />
           <Stack.Screen name="Registration" component={Registration} options={headerOptions} />  
-          <Stack.Screen name="Upload Image" component={Upload} options={headerOptions} />     
+          <Stack.Screen name="Upload" component={Upload} options={headerOptions} />     
           <Stack.Screen name="Forgot Password" component={ForgotPassword} options={headerOptions} />
           <Stack.Screen name="Home" component={Home} options={headerOptions} />
           <Stack.Screen name="Home(Dogs)" component={Dogs} options={headerOptions} />

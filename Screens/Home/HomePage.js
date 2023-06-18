@@ -28,7 +28,7 @@ const UserDisplay = () => {
       ? Math.floor((new Date() - new Date(user.birthday)) / (1000 * 60 * 60 * 24 * 365.25))
       : null;
 
-      const profilePicSource = user.profile_pic ? { uri: user.profile_pic } : require('../../assets/profiled.png');
+    const profilePicSource = user.profile_pic ? { uri: `https://onlinebugaw.pythonanywhere.com/${user.profile_pic}` } : require('../../assets/profiled.png');
     return (
       <View key={user.id} style={styles.userContainer}>
         <View style={styles.userInfo}>
@@ -41,7 +41,13 @@ const UserDisplay = () => {
   };
 
   const displayNextUser = () => {
-    setCurrentIndex((prevIndex) => prevIndex + 1);
+    setCurrentIndex((prevIndex) => {
+      if (prevIndex + 1 >= users.length) {
+        return 0; // Reset index to 0 if it reaches the end
+      } else {
+        return prevIndex + 1;
+      }
+    });
   };
 
   return (
@@ -80,7 +86,6 @@ const styles = StyleSheet.create({
     width: 200,
     height: 200,
     borderRadius: 100,
-
   },
   userInfo: {
     flex: 1,

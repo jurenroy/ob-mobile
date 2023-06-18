@@ -33,7 +33,10 @@
         "foregroundImage": "./assets/ob.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.jurenroy.PAPAPP"
+      "package": "com.jurenroy.OB",
+      "config": {
+        "cleartextMode": true
+      }
     },
     "web": {
       "favicon": "./assets/ob.png"
