@@ -1,6 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit'
-import profiled from '../../assets/profiled.png'
-import { Image } from 'react-native';
 
 export const DataSlice = createSlice({
     name: 'data',
