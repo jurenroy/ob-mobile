@@ -40,8 +40,9 @@
     },
     "extra": {
       "eas": {
-        "projectId": "47d5223d-1cda-4348-b1f4-442920c4ce01"
+        "projectId": "b00abdaa-1c7d-4c7f-9bd8-9d8e48d578fd"
       }
-    }
+    },
+    "owner": "jurenroy"
   }
 }
