@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "OB",
-    "slug": "ob",
+    "slug": "OB",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/ob.png",
@@ -33,17 +33,14 @@
         "foregroundImage": "./assets/ob.png",
         "backgroundColor": "#9026C8"
       },
-      "package": "com.jurenroy.OB",
-      "config": {
-        "cleartextMode": true
-      }
+      "package": "com.jurenroy.OB"
     },
     "web": {
       "favicon": "./assets/ob.png"
     },
     "extra": {
       "eas": {
-        "projectId": "47d5223d-1cda-4348-b1f4-442920c4ce01"
+        "projectId": "f15c52f9-c5a0-4a5b-8739-d53c0318c1f7"
       }
     }
   }
