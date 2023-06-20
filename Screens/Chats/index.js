@@ -4,7 +4,6 @@ import Logos from '../../Components/Logos';
 import { globalStyles } from '../../Components/styles';
 import global from '../../Components/global';
 import one from '../../assets/1.jpg'
-import { Pets } from '../../Components/Pets';
 import { Petss } from '../../Components/Petss';
 import { Conv } from '../../Components/Conv';
 import bg from '../../assets/bg.png'
@@ -12,12 +11,6 @@ import UnderConstructionPage from '../UnderConstructionPage';
 
 
 export default function Chats({navigation}) {
-    const storedImage = useSelector((state) => state.data.image)
-    const storedNumber = useSelector((state) => state.data.number)
-    const storedPet = Image.resolveAssetSource(one).uri 
-    const dispatch = useDispatch()
-    const number=global.idnum
-
 
    return (
 

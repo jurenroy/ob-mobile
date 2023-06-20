@@ -5,10 +5,6 @@ import { useSelector } from "react-redux";
 import bg from '../../assets/bg.png'
 
 export default function ForgotPassword({navigation}) {
-  const storedfirstName = useSelector((state) => state.data.firstName)
-  const storedlastName = useSelector((state) => state.data.lastName)
-  const storedEmail = useSelector((state) => state.data.email)
-  const storedPassword = useSelector((state) => state.data.password)
   
   const [data, setData] = useState({
     email: '',
@@ -29,12 +25,11 @@ export default function ForgotPassword({navigation}) {
       <Pressable style={[globalStyles.buttons,{width:'70%'}]} onPress={() => {
         if (data.email!=''){
           if (data.email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)){
-            if (data.email === storedEmail){
+            if (data.email === data.email){
               setData({
                 email: '',
               })            
-              alert("From team FF to "+storedEmail+ "\n\n Good day "+storedfirstName+" "+storedlastName+ "\n\n Your password is: " +storedPassword)
-              alert("Password sent to Email")
+              alert("Relax and Remember your password or try to email olbugaw@gmail.com to delete your account HAHAHAHA")
               navigation.replace('Login')
             }else{
               alert("Email does not match")
