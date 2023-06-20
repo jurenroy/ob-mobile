@@ -12,7 +12,6 @@ import Home from "./Screens/Home";
 import Dogs from "./Screens/Home1";
 import Cats from "./Screens/Home2";
 import Chats from "./Screens/Chats";
-import Conversation from "./Screens/Conversation";
 import Upload from "./Screens/Upload";
 
 const Stack = createNativeStackNavigator()
