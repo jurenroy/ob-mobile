@@ -1,7 +1,6 @@
 import { useState } from 'react';
-import { StyleSheet, Text, View, TextInput, Pressable, Image, ImageBackground } from 'react-native';
+import { Text, View, TextInput, Pressable, Image, ImageBackground } from 'react-native';
 import { globalStyles } from '../../Components/styles';
-import { useSelector } from "react-redux";
 import bg from '../../assets/bg.png'
 
 export default function ForgotPassword({navigation}) {

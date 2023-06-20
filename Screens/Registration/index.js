@@ -9,32 +9,18 @@ import {
   ImageBackground,
 } from "react-native";
 import { globalStyles } from "../../Components/styles";
-import DropDownPicker from "react-native-dropdown-picker";
-import { useDispatch } from "react-redux";
-import {
-  setFirstName,
-  setLastName,
-  setGender,
-  setBirthday,
-  setemail,
-  setPassword,
-  setImage,
-} from "../../Slices/Data/DataSlice";
-import profiled from "../../assets/profiled.png";
 import { Petss } from "../../Components/Petss";
 import { Statetus } from "../../Components/Statetus";
 import { Conv } from "../../Components/Conv";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useTogglePasswordVisibility } from "../../Components/useTogglePasswordVisibility";
 import { useToggleConfirmPasswordVisibility } from "../../Components/useToggleConfirmPasswordVisibility";
-import { handleRegistration } from "../../Components/handleRegistration";
 import { Dropdown } from "react-native-element-dropdown";
 import DatePicker from "react-native-modern-datepicker";
 import bg from "../../assets/bg.png";
 import { createUserProfile } from "../../api";
 
 export default function Registration({ navigation }) {
-  const dispatch = useDispatch();
   const { passwordVisibility, rightIcon, handlePasswordVisibility } =
     useTogglePasswordVisibility();
   const {
@@ -265,13 +251,7 @@ export default function Registration({ navigation }) {
                     Statetus.push(0);
                     Statetus.push(0);
                     Statetus.push(0);
-                    Statetus.push(0);
-                    Statetus.push(0);
-                    Statetus.push(0);
-                    Statetus.push(0);
-                    Statetus.push(0);
-                    Statetus.push(0);
-                    Statetus.push(0);
+                    
                     Conv.length = 0;
                     Conv.length = 10;
                     Conv[0] = [];
@@ -280,22 +260,7 @@ export default function Registration({ navigation }) {
                     Conv[1].push("Interested?          ");
                     Conv[2] = [];
                     Conv[2].push("Interested?          ");
-                    Conv[3] = [];
-                    Conv[3].push("Interested?          ");
-                    Conv[4] = [];
-                    Conv[4].push("Interested?          ");
-                    Conv[5] = [];
-                    Conv[5].push("Interested?          ");
-                    Conv[6] = [];
-                    Conv[6].push("Interested?          ");
-                    Conv[7] = [];
-                    Conv[7].push("Interested?          ");
-                    Conv[8] = [];
-                    Conv[8].push("Interested?          ");
-                    Conv[9] = [];
-                    Conv[9].push("Interested?          ");
                     
-
                     createUserProfile(data, {
                       headers: {
                         "Content-Type": "application/json",

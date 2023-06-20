@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Image, Text, View, Pressable, ImageBackground } from 'react-native';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { logout } from '../../Slices/Data/DataSlice';
 import Logos from '../../Components/Logos';
 import { globalStyles } from '../../Components/styles';
-import * as ImagePicker from 'expo-image-picker';
 import bg from '../../assets/bg.png';
 
 export default function Profile({ navigation, route }) {

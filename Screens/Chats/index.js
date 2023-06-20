@@ -1,7 +1,6 @@
 import { Image, Text, View, Pressable, ScrollView, ImageBackground} from 'react-native';
 import Logos from '../../Components/Logos';
 import { globalStyles } from '../../Components/styles';
-import global from '../../Components/global';
 import { Petss } from '../../Components/Petss';
 import { Conv } from '../../Components/Conv';
 import bg from '../../assets/bg.png'
