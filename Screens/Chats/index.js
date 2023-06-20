@@ -8,6 +8,7 @@ import { Pets } from '../../Components/Pets';
 import { Petss } from '../../Components/Petss';
 import { Conv } from '../../Components/Conv';
 import bg from '../../assets/bg.png'
+import UnderConstructionPage from '../UnderConstructionPage';
 
 
 export default function Chats({navigation}) {
@@ -26,7 +27,6 @@ export default function Chats({navigation}) {
       <View style={globalStyles.logoView}>
         <Logos navigation={navigation} />
       </View>  
-        <Text style={globalStyles.title}>Chat</Text>
       
         <ScrollView>
         {Petss.map((Petss,Index) => {
@@ -45,6 +45,9 @@ export default function Chats({navigation}) {
         );
       })}
       </ScrollView>
+      <View style={globalStyles.container6}> 
+      <UnderConstructionPage navigation={navigation}/>
+      </View>
     </View>
     </ImageBackground>
   )}

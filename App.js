@@ -40,8 +40,8 @@ export default function App() {
           <Stack.Screen name="Upload" component={Upload} options={headerOptions} />     
           <Stack.Screen name="Forgot Password" component={ForgotPassword} options={headerOptions} />
           <Stack.Screen name="Home" component={Home} options={headerOptions} />
-          <Stack.Screen name="Home(Dogs)" component={Dogs} options={headerOptions} />
-          <Stack.Screen name="Home(Cats)" component={Cats} options={headerOptions} />
+          <Stack.Screen name="LoveUs" component={Dogs} options={headerOptions} />
+          <Stack.Screen name="DoBook" component={Cats} options={headerOptions} />
           <Stack.Screen name="Chats" component={Chats} options={headerOptions} />
           <Stack.Screen name="Conversation" component={Conversation} options={headerOptions} />
           <Stack.Screen

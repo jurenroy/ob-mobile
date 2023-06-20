@@ -4,6 +4,7 @@ import Logos from '../../Components/Logos';
 import Dog from './Dog';
 import bg from '../../assets/bg.png'
 import { ImageBackground } from 'react-native';
+import UnderConstructionPage from '../UnderConstructionPage';
 
 export default function Dogs({navigation}) {
 
@@ -12,7 +13,7 @@ export default function Dogs({navigation}) {
     
     <View style={globalStyles.container2}>
       <Logos navigation={navigation} />
-      <Dog/>
+      <UnderConstructionPage navigation={navigation}/>
     </View>
     </ImageBackground>
   );

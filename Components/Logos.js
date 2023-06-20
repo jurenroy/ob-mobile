@@ -30,11 +30,11 @@ export default function Logos(props) {
         <Image source={require('../assets/ob.png')} style={globalStyles.logoism2} />
       </Pressable>
 
-      <Pressable onPress={() => {props.navigation.replace('Home(Dogs)')}}>
+      <Pressable onPress={() => {props.navigation.replace('LoveUs')}}>
         <Image source={require('../assets/loveus.png')} style={globalStyles.logoism2} />
       </Pressable>
 
-      <Pressable onPress={() => {props.navigation.replace('Home(Cats)')}}>
+      <Pressable onPress={() => {props.navigation.replace('DoBook')}}>
         <Image source={require('../assets/dobook.png')} style={[globalStyles.logoism2, { height: 80, marginTop: -5 }]} />
       </Pressable>
 

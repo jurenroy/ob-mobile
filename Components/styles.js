@@ -29,6 +29,12 @@ export const globalStyles = StyleSheet.create({
     },container5: {
       flex: 1,
       flexDirection: 'column',
+  }
+  ,container6: {
+    flex: 1,
+    alignItems: 'center',
+    marginTop: -600,
+    marginLeft: -20
   },
     input: {
       borderWidth: 2, 
