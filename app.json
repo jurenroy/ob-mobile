@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "OB",
-    "slug": "OB",
+    "slug": "ob",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/ob.png",
@@ -43,7 +43,7 @@
     },
     "extra": {
       "eas": {
-        "projectId": "f15c52f9-c5a0-4a5b-8739-d53c0318c1f7"
+        "projectId": "47d5223d-1cda-4348-b1f4-442920c4ce01"
       }
     }
   }
